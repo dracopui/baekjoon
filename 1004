@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+#include <math.h>
+
+int main(){
+
+	int N,x1,x2,y1,y2;
+
+	int CN,count,Cycle_x,Cycle_y,Cycle_radius;
+
+	int Prince,Rose,radius_square;
+
+	scanf("%d",&N);
+
+	for(int i=0;i<N;i++){
+
+		count=0;
+
+		scanf("%d %d %d %d",&x1,&y1,&x2,&y2);
+
+		scanf("%d",&CN);
+
+		for(int j=0;j<CN;j++){
+
+			scanf("%d %d %d",&Cycle_x,&Cycle_y,&Cycle_radius);
+
+			Prince=pow((x1-Cycle_x),2)+pow((y1-Cycle_y),2);
+
+			Rose=pow((x2-Cycle_x),2)+pow((y2-Cycle_y),2);
+
+			radius_square=pow(Cycle_radius,2);
+
+			if(Prince<radius_square&&Rose<radius_square) continue;
+
+			else if(Prince<radius_square||Rose<radius_square) count++;
+
+		}
+
+		printf("%d\n",count);
+
+	}
+
+	return 0;
+
+}
